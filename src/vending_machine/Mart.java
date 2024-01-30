@@ -50,6 +50,10 @@ public class Mart {
 		 * Product is a Object
 		 * TemperatureProduct is a Product
 		 * TemperatureProduct is a Object
+		 * 
+		 * Sellable (interface)
+		 *  --> VendingMachine
+		 *  --> RefundableVendingMachine
 		 */
 	/*
 	 * Product p = new Product();
@@ -60,14 +64,14 @@ public class Mart {
 	
 	 */
 	
-	Seller drinkMachine = new VendingMachine(); //VendingMachine 생성자를 불러옴.
+	Sellable drinkMachine = new VendingMachine(); //VendingMachine 생성자를 불러옴.
 	
 	
 	Customer musk = new Customer(200_000);//Customer 생상자를 불러오고, Customer의 int wallet값에 2000000부여.
 	
 	
 	
-	drinkMachine.insertMoney(musk, "제로펩시"); //insertMoney(VendingMachine)기능 사용 Customer클래스를 변수로 둠.
+	drinkMachine.insertMoney(musk, "제로펩시", 50); //insertMoney(VendingMachine)기능 사용 Customer클래스를 변수로 둠.
 	drinkMachine.pressButton(musk, "제로펩시", 50); //pressButton(VendingMachine)기능 사용 Customer클래스를 변수로 둠.
 
 	drinkMachine.insertMoney(musk, "제로펩시"); //insertMoney(VendingMachine)기능 사용 Customer클래스를 변수로 둠.
@@ -78,11 +82,11 @@ public class Mart {
 	
 	
 	
-	Seller snackMachine = new RefundableVendingMachine(400);
-	snackMachine.insertMoney(musk, "제로펩시");
+	Sellable snackMachine = new RefundableVendingMachine(400);
+	snackMachine.insertMoney(musk, "제로펩시", 50);
 	snackMachine.pressButton(musk, "제로펩시", 50);
 	
-	snackMachine.insertMoney(musk, "제로펩시");
+	snackMachine.insertMoney(musk, "제로펩시", 2);
 	snackMachine.pressButton(musk, "제로펩시", 2);
 	
 	snackMachine.printProducts();
